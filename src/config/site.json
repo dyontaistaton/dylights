@@ -1,0 +1,11 @@
+{ 
+  "title":"",
+  "description":"",
+  "colors":["#00f57c","#00b2ec","#ff0808","#ffffff","#2c2f33","#23272a"],
+  "fonts":["Karla"],
+  "sizes":{
+    "headers":["67.34px","50.52px","37.90px","28.43px","21.33px"],
+    "p":"16.00px",
+    "small":"12.00px"
+  }
+}
