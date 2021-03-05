@@ -15,7 +15,7 @@ const sizes={
 export const Style=styled.button`
   width:50px;
   height:50px;
-  background-color:${config.colors[0]};
+  background-color:${config.colors[1]};
   ${props=>`background-color:${props.backgroundColor};`}
   border-radius:100%;
   ${props=>`border-radius:${props.borderRadius};`}
@@ -23,7 +23,7 @@ export const Style=styled.button`
   
   // Button Icon
   svg{ 
-    fill:${config.colors[3]};
+    fill:${config.colors[0]};
   }
 
   // Sizes

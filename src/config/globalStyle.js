@@ -1,15 +1,19 @@
 import {createGlobalStyle} from 'styled-components'; 
 import config from '../config/site.json'
+import Cookies from '../assets/cookies.jpg' 
+
 
 const GlobalStyle = createGlobalStyle`
   body {
-    font-family:${config.fonts[0]},system-ui, Helvetica, sans-serif;
+    background-image:url(${Cookies});
+    background-position:center;
+    font-family:${config.fonts[1]},system-ui, Helvetica, sans-serif;
     line-height:1.3; 
   }
 
   // Setting Element Fonts
   h1,h2,h3,h4,h5,h6{
-    font-family:${config.fonts[0]},system-ui, Helvetica, sans-serif;
+    font-family:${config.fonts[1]},system-ui, Helvetica, sans-serif;
     font-weight:bold; 
   }
   
@@ -23,11 +27,16 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
-  // Gives Spacer Margin to Elements That Are After Another Element
-  #root *{
-    &+h1,&+h2,&+h3,&+h3,&+h4,&+h5,&+h6,&+p{
-      margin-block-start:0.5em;
+  #root {
+    // Gives Spacer Margin to Elements That Are After Another Element
+    *{
+      &+h1,&+h2,&+h3,&+h3,&+h4,&+h5,&+h6,&+p{
+        margin-block-start:0.5em;
+      }
     }
+
+    // Clamps Page Content To Fit Within Page Wrappers
+    overflow: hidden;
   }
 
   //Element Tool Tip

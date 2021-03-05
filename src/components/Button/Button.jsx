@@ -14,11 +14,11 @@ const sizes={
 
 export const Style=styled.button`
   background-color:${config.colors[0]};
-  color:${config.colors[3]};
+  color:${config.colors[1]};
   
   // Button Icon
   svg{
-    fill:${config.colors[3]};
+    fill:${config.colors[1]};
   }
 
   // Sets Headers To Bold

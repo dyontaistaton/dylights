@@ -14,8 +14,17 @@ import styled from 'styled-components';
 const Flex = styled.div `
   display:flex;
   ${props=>{
-    const {fill, align, a, justify, j, wrap, direction, d, alignContent, ac, gap, g, center} = props;
+    let {fill, align, a, justify, j, wrap, direction, d, alignContent, ac, gap, g, center, grow, shrink} = props;
+
+    align=align||a;
+    justify=justify||j;
+    direction=direction||d;
+    alignContent=alignContent||ac;
+    gap=gap||g;
+
     return `
+      ${grow?`flex-grow:${grow?1:0};`:''}
+      ${shrink?`flex-shrink:${shrink?1:0};`:''}
       ${fill?`
         width:inherit;
         height:inherit;
@@ -25,12 +34,14 @@ const Flex = styled.div `
         align-items:center;
         justify-content:center;
       `:''}
-      ${(align||a)?`align-items:${align||a};`:''}
-      ${(justify||j)?`justify-content:${justify||j};`:''}
-      ${(alignContent||ac)?`align-content:${alignContent||ac};`:''}
+      ${align?`align-items:${align};`:''}
+      ${justify?`justify-content:${justify};`:''}
+      ${alignContent?`align-content:${alignContent};`:''}
       ${wrap?`flex-wrap:${wrap};`:''}
-      ${(direction||d)?`flex-direction:${direction||d};`:''}
-      ${(gap||g)?`gap:${gap||g};`:''}
+      ${direction?`flex-direction:${direction};`:''}
+      ${(gap?(wrap!=='wrap'?`
+        & > *:not(:last-child){${direction==='column'?`margin-bottom:${gap}`:`margin-right:${gap}`};}
+      `:`gap:${gap};`):'')}
     `
   }}
 `

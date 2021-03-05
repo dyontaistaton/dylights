@@ -209,6 +209,18 @@ const FontFace = createGlobalStyle `
     font-style: italic;
     font-display: fallback;
   }
+  
+  @font-face {
+    font-family: ${config.fonts[0]};
+    src: url('fonts/Fjalla/FjallaOne-Regular.eot');
+    src: url('fonts/Fjalla/FjallaOne-Regular.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Fjalla/FjallaOne-Regular.woff2') format('woff2'),
+        url('fonts/Fjalla/FjallaOne-Regular.woff') format('woff'),
+        url('fonts/Fjalla/FjallaOne-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: fallback;
+  }
 `
 
 export default FontFace;

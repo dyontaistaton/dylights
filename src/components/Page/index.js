@@ -13,9 +13,9 @@ const Page = props => {
     <ThemeProvider theme={props.theme||{}}>
       <HelmetProvider>
         <Helmet>
-
+          {props.helmet}
         </Helmet>
-        <Layout>
+        <Layout {...props}>
           {props.children}
         </Layout>
       </HelmetProvider>
