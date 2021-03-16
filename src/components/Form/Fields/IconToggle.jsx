@@ -36,4 +36,10 @@ IconToggle.propTypes = {
   name: PropTypes.string.isRequired, 
 }
 
+IconToggle.style = Style;
+
+IconToggle.defaultProps = {
+  label: 'Toggle'
+}
+
 export default IconToggle;

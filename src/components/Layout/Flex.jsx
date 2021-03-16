@@ -44,6 +44,6 @@ const Flex = styled.div `
       `:`gap:${gap};`):'')}
     `
   }}
-`
+` 
 
-export default Flex
+export default Flex; 

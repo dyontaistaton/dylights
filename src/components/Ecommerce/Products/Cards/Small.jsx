@@ -22,7 +22,6 @@ const Style = styled(CardStyle)`
 `
 
 const Small = (props) => {
-  const {children} = props;
   return (
     <Style>
       <figure style={{backgroundImage:`url(https://www.ecotextile.com/images/stories/2020/June/Gucci.jpg)`}}/>

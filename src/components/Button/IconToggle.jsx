@@ -1,20 +1,6 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types'
-import styled from 'styled-components';
-import Icon,{Style as IconStyle} from './Icon'
-import config from '../../config/site.json'; 
-
-const Style = styled.div` 
-  ${IconStyle.toString()}{
-    background-color:${config.colors[5]}1C;
-    transition:100ms ease;
-
-    // If Icon Is Toggled
-    &[data-toggled=true]{
-      background-color:${config.colors[0]};
-    }
-  }
-`
+import Icon from './Icon'
 
 export const IconToggle = props => { 
   const {initial,toggled,onChange,onClick} = props
@@ -24,19 +10,17 @@ export const IconToggle = props => {
   const isToggleStateClamp = toggled!==undefined; 
 
   return (
-    <Style>
-      <Icon {...props} data-toggled={isToggleStateClamp?toggled:isToggled} onClick={(e)=>{
-        if(isToggleStateClamp){ 
-          onChange&&onChange(toggled);
-          onClick&&onClick(e,toggled);
-        }
-        else{
-          onChange&&onChange(!isToggled);
-          onClick&&onClick(e,!isToggled);
-          setToggled(!isToggled);
-        }
-      }}/>
-    </Style>
+    <Icon {...props} data-toggled={isToggleStateClamp?toggled:isToggled} onClick={(e)=>{
+      if(isToggleStateClamp){ 
+        onChange&&onChange(toggled);
+        onClick&&onClick(e,toggled);
+      }
+      else{
+        onChange&&onChange(!isToggled);
+        onClick&&onClick(e,!isToggled);
+        setToggled(!isToggled);
+      }
+    }}/>
   )
 }
 

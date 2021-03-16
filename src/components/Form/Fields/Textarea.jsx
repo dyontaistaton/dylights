@@ -10,12 +10,29 @@ export const types = {
 };
 
 export const Style = styled(FieldStyle) `
+  textarea {
+    ${props=>props.fill&&`width:100%;`} 
+    padding-top:20px;
+    transition:ease-in-out 0.3s, padding-top 0s; 
+    height:180px;
+    resize:vertical; 
+    & ~ label {
+      top:13px;
+      bottom: calc(100% - 49px);
+    }
+
+    &:focus, &:not(:placeholder-shown){
+      & ~ label {
+        top:3px;
+      }
+    }
+  }
 `
 
 const Textarea = props => {
   const {placeholder, label} = props;
   return ( 
-    <Style>
+    <Style {...props}>
       <Field {...props} as='textarea' placeholder='...'/>
       <If value={placeholder||label}>
         <label><h4>{placeholder||label}</h4></label>
@@ -31,6 +48,12 @@ Textarea.propTypes = {
 
   /** Field Name */
   name: PropTypes.string.isRequired, 
+}
+
+Textarea.style = Style;
+
+Textarea.defaultProps = {
+  label: 'Textarea',
 }
 
 export default Textarea;

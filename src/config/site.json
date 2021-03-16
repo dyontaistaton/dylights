@@ -1,11 +1,15 @@
 { 
   "title":"",
   "description":"",
-  "colors":["#FEC49A","#ffffff","#ff0808","#ffffff","#2c2f33","#e5e5e5"],
-  "fonts":["Fjalla One","Karla"],
+  "colors":["#FEC49A","#ffffff","#ff0808","#ffffff","#e5e5e5","#23272a"],
+  "fonts":["Karla","Karla"],
   "sizes":{
     "headers":["67.34px","50.52px","37.90px","28.43px","21.33px"],
     "p":"16.00px",
     "small":"12.00px"
-  }
+  },
+  "userTypes":[
+    "User",
+    "Admin"
+  ]
 }

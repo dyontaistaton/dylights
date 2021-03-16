@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Flex from '../Layout/Flex';
+import Button from './Button';
+import {Flex} from '../Layout';
 import config from '../../config/site.json'
 import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom';
@@ -12,18 +13,19 @@ const sizes={
   larger:'larger'
 };
 
-export const Style=styled.button`
+export const Style = styled(Button.style)`
   width:50px;
   height:50px;
-  background-color:${config.colors[1]};
-  ${props=>`background-color:${props.backgroundColor};`}
+  background:${config.colors[0]};
+  ${props=>`background:${props.background};`}
   border-radius:100%;
   ${props=>`border-radius:${props.borderRadius};`}
   padding:0;
   
   // Button Icon
   svg{ 
-    fill:${config.colors[0]};
+    fill:${config.colors[3]};
+    ${props=>`fill:${props.fill};`} 
   }
 
   // Sizes
@@ -55,10 +57,10 @@ export const Style=styled.button`
 const Icon=props => {
 
   // If The Bottom Links To Another Page
-  const ComponentWrapper = props.to?Link:React.Fragment;
+  const ComponentWrapper = props.to?Link:props.href?'a':React.Fragment;
 
   return (
-    <ComponentWrapper>
+    <ComponentWrapper to={props.to} href={props.href}>
       <Style {...props} data-size={props.size}>
         <Flex fill center>
           {props.icon}
@@ -73,10 +75,13 @@ Icon.propTypes = {
   to: PropTypes.string,
 
   /** Color Of Icon Button Background */
-  backgroundColor: PropTypes.string,
+  background: PropTypes.string,
 
   /** Icon Component Of Button */
   icon: PropTypes.node,
+
+  /** Color Of Svg */
+  fill: PropTypes.string,
 
   /** Border Radius Of Button */
   borderRadius: PropTypes.string,
@@ -84,5 +89,7 @@ Icon.propTypes = {
   /** Size Of The Icon Button */
   size: PropTypes.oneOf(['smaller','small','large','larger'])
 }
+
+Icon.style = Style;
 
 export default Icon;

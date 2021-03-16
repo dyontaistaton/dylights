@@ -2,14 +2,21 @@ import React from 'react'
 import styled from 'styled-components';
 import config from '../../config/site.json'
 import {Flex} from '../Layout';
-import {Icon as IconButton} from '../Button'
-import {FaFacebookF, FaInstagram, FaShoppingBasket, FaUser} from 'react-icons/fa'
+import {IconModal,Icon as IconButton} from '../Button'
+import {FaShoppingBasket, FaUser, FaWrench} from 'react-icons/fa'
 import Logo from '../Svg/Logo' 
+import {useSelector} from 'react-redux';
+import {If} from '../Logic';
+import Cookies from '../../assets/cookies.jpg'
+import {Login} from '../Account';
+import AccountModal from '../Account/Forms/Modal'
+
 
 export const Style = styled.div `
   height:300px;
   color:${config.colors[1]};
-  background-color:transparent;
+  background-image:url(${Cookies});
+  background-position:center;
 
   // Flex Container
   > ${Flex}{
@@ -17,19 +24,22 @@ export const Style = styled.div `
     height:100%;
     padding:20px;
   }
-
-
 `
 
 const Header = props => {
+  const {auth} = useSelector(state => state.firebase);
+
   return (
     <Style>
       <Flex fill d='column' center>
         <Logo/>
-        <Flex gap='15px'>
-          
-          <IconButton size='large' icon={FaUser()}/>
-          <IconButton size='large' icon={FaShoppingBasket()}/>
+        <Flex gap='40px'>
+          <IconButton data-title='Admin' size='large' icon={FaWrench()} to='/a/orders' fill={config.colors[0]} background={config.colors[3]}/> 
+          <If value={auth.uid}>
+            <IconButton to={`/u?id=${auth.uid}`}data-title='Account' size='large' icon={FaUser()} fill={config.colors[0]} background={config.colors[3]}/>
+          </If>
+          <AccountModal/>
+          <IconButton data-title='Cart' size='large' icon={FaShoppingBasket()} fill={config.colors[0]} background={config.colors[3]}/>
         </Flex>
       </Flex>
     </Style>    

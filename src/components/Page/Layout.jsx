@@ -21,21 +21,33 @@ export const Style = styled(Flex) `
 `
 
 const Layout = props => {
+  const {style, noHeader, noFooter, children, noWrapper, wrapper, footer, header} = props; 
+
   return(
-    <Style d='column' j='space-between'>
-      <Header/>
-      <If value={props.wrapper} Else={(
-          <If value={props.noWrapper} Else={(
-            <div className='main-content-wrapper'>
-              {props.children}
-            </div>
-          )}>
-            {props.children}
-          </If>
+    <Style d='column' j='space-between' style={style}>
+      <If value={!noHeader&&!header}>
+        <Header/>
+      </If>
+      <If value={header}>
+        {header&&header({})}
+      </If>
+      <If value={wrapper} Else={(
+        <If value={noWrapper} Else={(
+          <div className='main-content-wrapper'>
+            {children}
+          </div>
         )}>
-          <>{props.wrapper&&props.wrapper({children:props.children})}</>
+          {children}
         </If>
-      <Footer/>
+      )}>
+        <>{wrapper&&wrapper({children:children})}</>
+      </If>
+      <If value={!noFooter&&!footer}>
+        <Footer/>
+      </If>
+      <If value={footer}>
+        {footer&&footer({})}
+      </If>
     </Style>
   )
 }

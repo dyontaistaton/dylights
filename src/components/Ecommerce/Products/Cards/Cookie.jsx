@@ -1,8 +1,7 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import styled from 'styled-components';
 import {Flex} from '../../../Layout';
 import config from '../../../../config/site.json'
-import gsap from 'gsap';
 import Tilt from 'react-parallax-tilt'
 
 export const Style = styled.div` 
@@ -51,7 +50,7 @@ export const Style = styled.div`
       text {
         opacity:0;
         transition:ease-out 1s;
-        fill:${config.colors[0]};
+        fill:${config.colors[1]};
         text-transform:uppercase;
       }
     } 
@@ -69,13 +68,14 @@ export const Style = styled.div`
       width:31%;
       bottom:11%;
       right:11%;
-      color:${config.colors[0]}; 
-      background-color:white;
+      color:${config.colors[1]}; 
+      background-color:${config.colors[0]};
       border-radius:100%;
       transform:scale(0);
       opacity:0;
       will-change:transform opacity;
       transition:ease-out 130ms; 
+      transform:translateZ(20px); 
 
       // Price Text Header
       > h2{
@@ -134,6 +134,7 @@ const Cookie = props => {
   return (
     <Style>
       <Tilt
+        tiltReverse={true}
         style={{transformStyle:'preserve-3d'}}
         tiltMaxAngleX='5'
         tiltMaxAngleY='10'
@@ -148,7 +149,7 @@ const Cookie = props => {
                 <feComposite in2="goo" in="SourceGraphic" result="mix" />
               </filter>
             </defs>
-            <path stroke="white" stroke-width="79" id="textcircle" fill='none' d="M241.5 443.5C353.062 443.5 443.5 353.062 443.5 241.5C443.5 129.938 353.062 39.5 241.5 39.5C129.938 39.5 39.5 129.938 39.5 241.5C39.5 353.062 129.938 443.5 241.5 443.5Z"/> 
+            <path stroke={config.colors[0]} stroke-width="79" id="textcircle" fill='none' d="M241.5 443.5C353.062 443.5 443.5 353.062 443.5 241.5C443.5 129.938 353.062 39.5 241.5 39.5C129.938 39.5 39.5 129.938 39.5 241.5C39.5 353.062 129.938 443.5 241.5 443.5Z"/> 
             <text id='name-text' dy="21" dx="100%" 
               textAnchor='end'
               fontSize={config.sizes.headers[1]} 
@@ -156,7 +157,7 @@ const Cookie = props => {
               fontFamily={config.fonts[0]}
               letterSpacing='4'
               textLength='spacing'
-              fill={config.colors[0]}
+              fill={config.colors[1]}
             >
               <textPath xlinkHref="#textcircle"> 
                 {amount}ct - {name}

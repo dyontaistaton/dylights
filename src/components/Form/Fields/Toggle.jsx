@@ -39,4 +39,10 @@ Toggle.propTypes = {
   name: PropTypes.string.isRequired, 
 }
 
+Toggle.style = Style;
+
+Toggle.defaultProps = {
+  label: 'Toggle'
+}
+
 export default Toggle;

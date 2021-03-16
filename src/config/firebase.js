@@ -5,7 +5,13 @@ import 'firebase/firestore';
 import 'firebase/analytics'
 
 export const config={
-  // <!-- Firebase App Config Goes Here 
+  apiKey: "AIzaSyCxaFWKsRNAawaGDF5zVEHY0UHjYiw_d4o",
+  authDomain: "baked-dylights.firebaseapp.com",
+  projectId: "baked-dylights",
+  storageBucket: "baked-dylights.appspot.com",
+  messagingSenderId: "326132177897",
+  appId: "1:326132177897:web:d375fc42fb40b1b6e14978",
+  measurementId: "G-E3EDMCD8C7"
 };
 
 firebase.initializeApp(config);

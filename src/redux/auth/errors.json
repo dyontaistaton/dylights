@@ -1,0 +1,8 @@
+{
+  "REGISTER":{
+    "NO_PHONE":{
+      "name":"NO_PHONE",
+      "message":"There was no phone number given upon registration"
+    }
+  }
+}

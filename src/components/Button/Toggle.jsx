@@ -1,20 +1,6 @@
 import React, {useState} from 'react';
-import styled from 'styled-components';
-import Button,{Style as ButtonStyle} from './Button'
-import config from '../../config/site.json'; 
-import PropTypes from 'prop-types'
-
-export const Style = styled.div` 
-  ${ButtonStyle.toString()}{
-    background-color:${config.colors[5]}1C;
-    transition:100ms ease;
-
-    // If Button Is Toggled
-    &[data-toggled=true]{
-      background-color:${config.colors[0]};
-    }
-  }
-`
+import Button from './Button'
+import PropTypes from 'prop-types' 
 
 export const Toggle = props => { 
   const {initial,toggled,onChange,onClick} = props
@@ -24,19 +10,17 @@ export const Toggle = props => {
   const isToggleStateClamp = toggled!==undefined; 
 
   return (
-    <Style>
-      <Button {...props} data-toggled={toggled!==undefined?toggled:isToggled} onClick={(e)=>{
-        if(isToggleStateClamp){ 
-          onChange&&onChange(toggled);
-          onClick&&onClick(e,toggled);
-        }
-        else{
-          onChange&&onChange(!isToggled);
-          onClick&&onClick(e,!isToggled);
-          setToggled(!isToggled);
-        }
-      }}/>
-    </Style>
+    <Button {...props} data-toggled={toggled!==undefined?toggled:isToggled} onClick={(e)=>{
+      if(isToggleStateClamp){ 
+        onChange&&onChange(toggled);
+        onClick&&onClick(e,toggled);
+      }
+      else{
+        onChange&&onChange(!isToggled);
+        onClick&&onClick(e,!isToggled);
+        setToggled(!isToggled);
+      }
+    }}/>
   )
 }
 

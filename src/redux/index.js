@@ -5,9 +5,12 @@ import thunk from 'redux-thunk';
 
 import {config} from '../config/firebase';
 
+import auth from './auth'
+
 export const rootReducer=combineReducers({
   firebase:firebaseReducer,
-  firestore:firestoreReducer
+  firestore:firestoreReducer,
+  auth:auth.reducer,
 });
 
 const store=createStore(

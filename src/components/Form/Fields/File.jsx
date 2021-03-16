@@ -1,11 +1,28 @@
 import React from 'react'
 import styled from 'styled-components'; 
-import {default as FieldStyle} from './Style';
+import Input from './Input';
 import {Field} from 'formik';
+import config from '../../../config/site.json'
 import PropTypes from 'prop-types'
 
-export const Style = styled(FieldStyle)`
+export const Style = styled(Input.style)`
+  // File Inputs
+  input{
+    cursor:pointer;
+    color:${config.colors[5]};
 
+    // Hide Default Upload Button
+    &::-webkit-file-upload-button{
+      visibility:hidden;
+      margin-right:-102px;
+      margin-top:4px;
+    }
+
+    // Make Placeholder Color Dark Black
+    &::placeholder{
+      color:${config.colors[5]};
+    }
+  } 
 `
 
 const File = props => {
@@ -34,6 +51,12 @@ File.propTypes = {
 
   /** Field Name */
   name: PropTypes.string.isRequired, 
+}
+
+File.style = Style;
+
+File.defaultProps = {
+  label: 'File'
 }
 
 export default File
