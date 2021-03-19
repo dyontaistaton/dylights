@@ -25,6 +25,19 @@ export const Style = styled.div `
     box-sizing:border-box;
     height:100%;
     padding:20px;
+  } 
+
+  @media(max-width:700px){
+    #logo{
+      width:600px;
+    }
+  }
+
+  @media(max-width:500px){
+    height:200px;
+    #logo{
+      width:300px;
+    }
   }
 `
 
@@ -34,9 +47,11 @@ const Header = props => {
   return (
     <Style>
       <Flex fill d='column' center>
-        <Logo/>
+        <Logo id='logo'/>
         <Flex gap='40px'>
-          <IconButton data-title='Admin' size='large' icon={FaWrench()} to='/a/o' fill={config.colors[0]} background={config.colors[3]}/> 
+          <If value={auth.uid&&auth.uid=='uygHHbh6xKT01NyG91Iv02RDnVw2'}>
+            <IconButton data-title='Admin' size='large' icon={FaWrench()} to='/a/o' fill={config.colors[0]} background={config.colors[3]}/> 
+          </If>
           <If value={auth.uid}>
             <IconButton to={`/u/${auth.uid}/a`}data-title='Account' size='large' icon={FaUser()} fill={config.colors[0]} background={config.colors[3]}/>
           </If>

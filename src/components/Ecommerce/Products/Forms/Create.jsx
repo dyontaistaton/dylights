@@ -26,7 +26,7 @@ const Create=props => {
         <h5>New Product</h5>
       </Modal.Header>
       <Modal.Body>
-        <File autoComplete='off' name='imageFile' label='Image' accepts='image/*' />
+        <File autoComplete='off' name='image' label='Image' accepts='image/*' />
         <Input autoComplete='off' name='name' label='Name' type='text' />
         <Input autoComplete='off' name='price' label='Price' type="number" />
         <Input autoComplete='off' name='count' label='Count' type="number" />

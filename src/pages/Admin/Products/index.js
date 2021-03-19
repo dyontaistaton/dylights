@@ -5,6 +5,7 @@ import {Icon} from '../../../components/Button';
 import {Flex} from '../../../components/Layout';
 import {Forms, Cards} from '../../../components/Ecommerce/Products'
 import {CreateProduct} from '../../../redux/ecommerce/products/actions'
+import {UploadFile} from '../../../redux/storage/actions' 
 import List from './List'
 import {useDispatch} from 'react-redux'; 
 
@@ -22,21 +23,36 @@ const Products = props => {
   })
 
   //* When Create Form Is Submitted
-  const handleCreateSubmit = (values,action) => {
+  const handleCreateSubmit = (values,action) => { 
+    const {name,price,count,image} = values;
     setLoading(true)
-    action.resetForm()
-    dispatch(CreateProduct(values,()=>{
-      setLoading(false) 
-      setCompleted({
-        ...completed,
-        create:true
+
+    //* Upload Product Image
+    dispatch(UploadFile(undefined,image,(snapshot)=>{
+      snapshot.ref.getDownloadURL()
+      .then(url=>{
+
+        //* Create Product With Image Download Url
+        dispatch(CreateProduct({
+          name,
+          price,
+          count,
+          imageUrl:url
+        },()=>{
+          setLoading(false) 
+          setCompleted({
+            ...completed,
+            create:true
+          })
+          action.resetForm()
+          setTimeout(()=>{
+            setCompleted({
+              ...completed,
+              create:false
+            })
+          },3000)
+        }))
       })
-      setTimeout(()=>{
-        setCompleted({
-          ...completed,
-          create:false
-        })
-      },3000)
     }))
   }
   

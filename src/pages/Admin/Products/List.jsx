@@ -6,11 +6,13 @@ import {If} from '../../../components/Logic';
 import  {InfoStrip} from '../../../components/Ecommerce/Products/Cards'
 
 const Style = styled.ul`
+  max-width:100%;
   width:min-content;
+  padding:0;
 
   //* Adding Margins Between Children
   > *:not(:last-child){
-    margin-bottom:10px;
+    margin-bottom:10px; 
   }
 `
 

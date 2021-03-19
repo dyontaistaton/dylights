@@ -8,7 +8,9 @@ import {FaEnvelope, FaEnvelopeOpen} from 'react-icons/fa';
 const Style = styled.div`
   padding:15px;
   border-radius:10px;
-  background-color:${config.colors[4]}; 
+  background-color:${config.colors[4]};
+  overflow-x:scroll; 
+
 
   >${Flex}{
     // Header Flex
@@ -26,7 +28,11 @@ const Style = styled.div`
 
       // Product Image
       >figure{
-
+        height:200px;
+        width:100%;
+        background-position:center;
+        margin-top:10px;
+        border-radius:15px;
       }
     }
   }

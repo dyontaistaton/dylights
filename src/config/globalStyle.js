@@ -1,6 +1,5 @@
 import {createGlobalStyle} from 'styled-components'; 
 import config from '../config/site.json'
-import Cookies from '../assets/cookies.jpg' 
 
 
 const GlobalStyle = createGlobalStyle`
@@ -28,6 +27,14 @@ const GlobalStyle = createGlobalStyle`
     ::-webkit-scrollbar{
       display:none;
     }
+
+    //* Removes Selection 
+    user-select: none; 
+    outline:none; 
+    &::selection{
+      display:none;
+    }
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
   }
 
   #root {

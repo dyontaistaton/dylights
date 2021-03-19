@@ -33,8 +33,9 @@ export const UploadFile = (path, file,...callbacks) => {
     .catch(err => dispatch({type:types.UPLOAD_FILE_ERROR,err}))
 
     // 6. Run All Callbacks
-    .then(()=>{
-      for (let i = 0; i < callbacks.length; i++) {callbacks[i]()}
+    .then((snapshot)=>{
+
+      for (let i = 0; i < callbacks.length; i++) {callbacks[i](snapshot)}
     })
 
     // 7. Return The Upload Task

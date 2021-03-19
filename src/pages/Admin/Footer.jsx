@@ -8,6 +8,7 @@ import {PathToggleGroup} from '../../components/Page'
 export const Style = styled(Flex)`
   background-color:${config.colors[4]};
   padding:15px;
+  overflow-x:scroll;
 `
 
 const Footer = props => { 

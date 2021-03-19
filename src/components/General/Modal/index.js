@@ -20,13 +20,18 @@ export const Style = styled(Flex)`
   box-sizing:border-box;
   transition:visibility 0s;
   z-index:10000;
+  position:fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
 
-  &, & > figure{
+  > figure{
     position:fixed;
-    top:0;
-    bottom:0;
-    left:0;
-    right:0;
+    top:-400px;
+    bottom:-400px;
+    left:-400px;
+    right:-400px;
   }  
   // Modal Back-drop
   > figure{

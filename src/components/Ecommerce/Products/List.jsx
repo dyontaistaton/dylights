@@ -11,13 +11,13 @@ const List = props => {
   return (
     <If value={wrapper} Else={(
       <Style>
-        {products.map(product=>(
+        {products&&products.map(product=>(
           <>{card({product})}</>
         ))}
       </Style>
     )}>
       <>{wrapper&&wrapper({
-        children:products.map(product=>(
+        children:products&&products.map(product=>(
           <>{card({product})}</>
         ))
       })}</>
