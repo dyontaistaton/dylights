@@ -19,12 +19,12 @@ const Admin = props => {
   return (
     <Page
       noHeader
-      footer={props=>(<Footer routes={routes}/>)}
+      footer={props=>(<Footer routes={routes.map(route=>route.name)}/>)}
       wrapper={props=>(<Style>{props.children}</Style>)}
     >
       <Switch>
         {routes.map(route=>(
-          <Route path={`${path}/${route.name.toLowerCase()}`}>
+          <Route path={`${path}/${route.name[0].toLowerCase()}`}>
             {route({})}
           </Route>
         ))} 

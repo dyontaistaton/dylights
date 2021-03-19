@@ -2,7 +2,7 @@ import React from 'react';
 import Page from '../components/Page'
 import {Flex, Grid} from '../components/Layout';
 import config from '../config/site.json'
-import {List, Cookie} from '../components/Ecommerce/Products'
+import {List,Cards} from '../components/Ecommerce/Products'
 import Cookies from '../assets/cookies.jpg';
 import Cookie1 from '../assets/cookie1.png';
 import Cookie2 from '../assets/cookie2.png'; 
@@ -26,7 +26,7 @@ const Home= props => {
             {props.children}
           </Flex>
         )}
-        card={Cookie}
+        card={Cards.Cookie}
         products={[
           {
             amount:'16',
@@ -47,7 +47,7 @@ const Home= props => {
             price:15
           }
         ]}
-      />
+      /> 
     </Page>
   )
 };

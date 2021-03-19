@@ -80,7 +80,7 @@ export const Style = styled.div`
       // Price Text Header
       > h2{
         margin: 8px 5px 0 0;
-        font-family:${config.fonts[0]};
+        font-family:${'Fjalla One'};
       }
     }
   }
@@ -154,7 +154,7 @@ const Cookie = props => {
               textAnchor='end'
               fontSize={config.sizes.headers[1]} 
               fontWeight='bold' 
-              fontFamily={config.fonts[0]}
+              fontFamily={'Fjalla One'}
               letterSpacing='4'
               textLength='spacing'
               fill={config.colors[1]}
@@ -167,7 +167,7 @@ const Cookie = props => {
               textAnchor='end'
               fontSize={config.sizes.headers[1]} 
               fontWeight='bold' 
-              fontFamily={config.fonts[0]}
+              fontFamily={'Fjalla One'}
               letterSpacing='4'
               textLength='spacing'
               rotate='180' 

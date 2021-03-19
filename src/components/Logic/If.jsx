@@ -8,7 +8,7 @@ export const If=props => {
 If.propTypes = {
    
   /** Boolean Which Determines If The Children Are Rendered Or Not */
-  value: PropTypes.bool,
+  value: PropTypes.any,
   
   /** What is Rendered If Value Prop Is False */
   Else: PropTypes.node

@@ -104,7 +104,7 @@ export const Button=props => {
   const ComponentWrapper = to?Link:href?'a':React.Fragment;
 
   return (
-    <ComponentWrapper to={to} href={href}>
+    <ComponentWrapper {...to?{to,href}:undefined}>
       <Style {...props} size={size} data-contrasted={props.contrasted}>
         <Flex center>
           <If value={!size}>

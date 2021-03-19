@@ -2,10 +2,11 @@ import React from 'react'
 import styled from 'styled-components';
 import {Toggle} from '../../components/Button';
 import {Flex} from '../../components/Layout';
-import config from '../../config/site.json'
+import config from '../../config/site.json';
+import {PathToggleGroup} from '../../components/Page'
 
 export const Style = styled(Flex)`
-  background-color:${config.colors[5]};
+  background-color:${config.colors[4]};
   padding:15px;
 `
 
@@ -14,13 +15,7 @@ const Footer = props => {
   const {routes} = props
   return (
     <Style g='15px'> 
-      {routes.map(route=>(
-        <Toggle 
-          toggled={path.includes(route.name.toLowerCase())} 
-          label={route.name} 
-          to={`/a/${route.name.toLowerCase()}`}
-        />
-      ))}
+      <PathToggleGroup start='/a' routes={routes} shortened/>
       <Toggle toggled={false} to='/' label='Home'/>
     </Style>
   )

@@ -55,12 +55,13 @@ export const Style = styled(Button.style)`
 `; 
 
 const Icon=props => {
+  const {to,href} = props
 
   // If The Bottom Links To Another Page
-  const ComponentWrapper = props.to?Link:props.href?'a':React.Fragment;
+  const ComponentWrapper = to?Link:href?'a':React.Fragment;
 
   return (
-    <ComponentWrapper to={props.to} href={props.href}>
+    <ComponentWrapper {...to?{to,href}:undefined}>
       <Style {...props} data-size={props.size}>
         <Flex fill center>
           {props.icon}

@@ -9,7 +9,7 @@ import {useSelector} from 'react-redux';
 import {If} from '../Logic';
 import Cookies from '../../assets/cookies.jpg'
 import {Login} from '../Account';
-import AccountModal from '../Account/Forms/Modal'
+import AccountModal from '../Account/Forms/Modal';
 
 
 export const Style = styled.div `
@@ -17,6 +17,8 @@ export const Style = styled.div `
   color:${config.colors[1]};
   background-image:url(${Cookies});
   background-position:center;
+  overflow:hidden;
+  position:relative;
 
   // Flex Container
   > ${Flex}{
@@ -34,9 +36,9 @@ const Header = props => {
       <Flex fill d='column' center>
         <Logo/>
         <Flex gap='40px'>
-          <IconButton data-title='Admin' size='large' icon={FaWrench()} to='/a/orders' fill={config.colors[0]} background={config.colors[3]}/> 
+          <IconButton data-title='Admin' size='large' icon={FaWrench()} to='/a/o' fill={config.colors[0]} background={config.colors[3]}/> 
           <If value={auth.uid}>
-            <IconButton to={`/u?id=${auth.uid}`}data-title='Account' size='large' icon={FaUser()} fill={config.colors[0]} background={config.colors[3]}/>
+            <IconButton to={`/u/${auth.uid}/a`}data-title='Account' size='large' icon={FaUser()} fill={config.colors[0]} background={config.colors[3]}/>
           </If>
           <AccountModal/>
           <IconButton data-title='Cart' size='large' icon={FaShoppingBasket()} fill={config.colors[0]} background={config.colors[3]}/>

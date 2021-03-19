@@ -15,6 +15,7 @@ const Style = styled.div `
   input, textarea, select{
     padding:15px;
     border:solid 1px ${config.colors[5]}30;
+    background-color:${config.colors[4]};
     outline:none;
     width:313px;
     max-width:100%;

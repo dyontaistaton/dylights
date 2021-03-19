@@ -57,10 +57,9 @@ const Modal = props => {
         icon={FaUser()} 
         fill={config.colors[0]} 
         background={config.colors[3]}
-        onClick={()=>{
-          setShown(!shown);
-        }}
+        onClick={()=>setShown(!shown)}
         style={{display:auth.uid?'none':undefined}}
+        type='button'
       />
       <If value={isRegistering} Else={(
         <Login uid={auth.uid} show={shown} onSwitch={handleFormSwitch} onHide={handleClose} loading={isLoading} onSubmit={handleLoginSubmit}/>

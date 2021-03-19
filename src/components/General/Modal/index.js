@@ -7,6 +7,7 @@ import PropTypes from 'prop-types'
 import Header from './Header';
 import Footer from './Footer'
 import Body from './Body'
+import Splash from './Splash'
 
 
 export const Style = styled(Flex)`
@@ -153,16 +154,23 @@ Modal.style = Style;
 Modal.Header = Header;
 Modal.Body = Body;
 Modal.Footer = Footer;
+Modal.Splash = Splash;
 
 Modal.propTypes = {
+
+  /** Is Modal Open ( Displayed ) Or Closed ( Hidden ) */
   show: PropTypes.bool,
+
+  /** Event Callback, Ran When Modal Should Be Closed */
   onHide: PropTypes.func,
+
+  /** Position Of Modal Contents
+   * Ex: "top-left" or "bottom-middle"
+   */
   position: PropTypes.oneOf(Object.values(POSITIONS)),
-  fit: PropTypes.bool
 };
 
 Modal.defaultProps = {
-  fit:false,
   position: 'center'
 }; 
 
