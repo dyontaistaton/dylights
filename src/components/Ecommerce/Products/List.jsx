@@ -11,14 +11,14 @@ const List = props => {
   return (
     <If value={wrapper} Else={(
       <Style>
-        {products&&products.map(product=>(
-          <>{card({product})}</>
+        {products&&Object.entries(products).map(([key,product])=>(
+          <>{card({product,key})}</>
         ))}
       </Style>
     )}>
       <>{wrapper&&wrapper({
-        children:products&&products.map(product=>(
-          <>{card({product})}</>
+        children:products&&Object.entries(products).map(([key,product])=>(
+          <>{card({product,key})}</>
         ))
       })}</>
     </If>

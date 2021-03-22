@@ -22,8 +22,11 @@ const Create=props => {
       }}
     >
       <Modal.Header>
-        <h3>Create</h3>
-        <h5>New Product</h5>
+        <hgroup>
+          <h3>Create</h3>
+          <h5>New Product</h5>
+        </hgroup>
+        
       </Modal.Header>
       <Modal.Body>
         <File autoComplete='off' name='image' label='Image' accepts='image/*' />

@@ -7,10 +7,13 @@ import {FaTimes} from 'react-icons/fa'
 import {If} from '../../Logic';
 
 export const Style = styled(Flex)`
+  margin-right:50px;
+  padding-bottom:13px;
 
   //Header Title
   > *{
     white-space:nowrap;
+
   }
 
   // Close Icon Button
@@ -26,7 +29,7 @@ const Header = props => {
   return (
     <>
       <Style {...props} a='center' j='space-between' g='55px'>
-        <hgroup>{props.children}</hgroup>
+        {props.children}
       </Style>
       <If value={props.closeButton}>
         <Icon id='close-button' icon={FaTimes()} data-title='Close' size='smaller' onClick={props.onHide} type='button'/>

@@ -19,13 +19,17 @@ const Style=styled.div`
     right:0;
     margin:auto; 
   }
+
+  &[data-loading=true] > ${Button.style}{
+    pointer-events:none;
+  }
 `;
 
 const Dynamic=props => {
   const {loading,fill}=props;
 
   return (
-    <Style>
+    <Style data-loading={loading}>
       <Button {...props} fill={loading?'transparent':fill}/>
       <If value={loading}>
         <Loader color={fill||config.colors[3]} width='80%' height='7px'/>

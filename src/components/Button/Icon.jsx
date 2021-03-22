@@ -61,7 +61,7 @@ const Icon=props => {
   const ComponentWrapper = to?Link:href?'a':React.Fragment;
 
   return (
-    <ComponentWrapper {...to?{to,href}:undefined}>
+    <ComponentWrapper {...to||href?{to,href}:undefined}>
       <Style {...props} data-size={props.size}>
         <Flex fill center>
           {props.icon}

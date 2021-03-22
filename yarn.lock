@@ -2893,7 +2893,7 @@ async@0.9.x:
   resolved "https://registry.yarnpkg.com/async/-/async-0.9.2.tgz#aea74d5e61c1f899613bf64bda66d4c78f2fd17d"
   integrity sha1-rqdNXmHB+JlhO/ZL2mbUx48v0X0=
 
-async@^2.6.2:
+async@^2.6.2, async@~2.6.3:
   version "2.6.3"
   resolved "https://registry.yarnpkg.com/async/-/async-2.6.3.tgz#d72625e2344a3656e3a3ad4fa749fa83299d82ff"
   integrity sha512-zflvls11DCy+dQWzTW2dzuilv8Z5X/pjfmZOWba6TNIVDm+2UDaJmXSOXlasHKfNBs8oo3M0aT50fDEWfKZjXg==
@@ -10513,6 +10513,13 @@ scheduler@^0.20.1:
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
+
+schema-inspector@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/schema-inspector/-/schema-inspector-2.0.0.tgz#f124f2d66e2d68c93d38d3dd7e0f4cf3d1e4ccd7"
+  integrity sha512-Qa0fZ8vfCNzwPWZPfXVtjqYKN7rC2jFrHia2UvBvmaXTdwiA9hnTnWh30MP47Tw5ZejkuH0QqUpDK4NqPoBk4w==
+  dependencies:
+    async "~2.6.3"
 
 schema-utils@^1.0.0:
   version "1.0.0"

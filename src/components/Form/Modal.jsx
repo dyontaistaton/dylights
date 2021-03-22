@@ -63,7 +63,7 @@ Modal.defaultProps = {
   onClose:()=>{},
   onOpen:()=>{},
   onChange:()=>{},
-  onSubmit:()=>console.log('Create Product - No Function For "onSubmit"')
+  onSubmit:()=>console.log('No Function For "onSubmit"')
 }
 
 Modal.Header = BaseModal.Header;

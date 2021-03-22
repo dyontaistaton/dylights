@@ -25,56 +25,59 @@ export const Style = styled(Flex)`
   bottom:0;
   left:0;
   right:0;
+ 
 
-  > figure{
-    position:fixed;
-    top:-400px;
-    bottom:-400px;
-    left:-400px;
-    right:-400px;
-  }  
-  // Modal Back-drop
-  > figure{
-    background-color: #000000ac;
-    opacity:0;
-    transition:ease 200ms;
-    transition-delay:400ms;
-  }
-
-  // Modal Content Wrapper
-  > ${Grid}{
-    position: relative;
-    background-color:${config.colors[5]};
-    width:min-content;
-    min-width:237px;
-    min-height:350px;
-    ${props=>`
-      min-width:unset;
-      min-height:unset;
-    `}
-    padding:20px;
-    border-radius:25px;
-    color:${config.colors[3]};
-    opacity:0;
-    transition-delay:200ms; 
-    transition:ease 400ms; 
-    transform:translateY(-40px);
-
-    // Header Component
-    > ${Header.style}{
-
+  // Modal Wrapper
+  > * {
+    // Modal Back-drop
+    > figure{
+      position:fixed;
+      top:-400px;
+      bottom:-400px;
+      left:-400px;
+      right:-400px;
+      background-color: #000000ac;
+      opacity:0;
+      transition:ease 200ms;
+      transition-delay:400ms;
     }
 
-    // Body Component
-    > ${Body.style}{
-      
+    // Modal Content Wrapper
+    > ${Grid}{
+      position: relative;
+      background-color:${config.colors[5]};
+      width:min-content;
+      min-width:237px;
+      min-height:350px;
+      ${props=>`
+        min-width:unset;
+        min-height:unset;
+      `}
+      padding:20px;
+      border-radius:25px;
+      color:${config.colors[3]};
+      opacity:0;
+      transition-delay:200ms; 
+      transition:ease 400ms; 
+      transform:translateY(-40px);
+
+      // Header Component
+      > ${Header.style}{
+
+      }
+
+      // Body Component
+      > ${Body.style}{
+        
+      }
+
+      // Footer Component
+      > ${Footer.style}{
+
+      } 
     }
-
-    // Footer Component
-    > ${Footer.style}{
-
-    } 
   }
+  
 
   
 
@@ -83,17 +86,22 @@ export const Style = styled(Flex)`
     visibility:visible;
     pointer-events:unset;
 
-    // Modal Back-drop
-    > figure{
-      opacity:1;
-      transition-delay:0s;
+    // Modal Wrapper
+    > *{
+      // Modal Back-drop
+      > figure{
+        opacity:1;
+        transition-delay:0s;
+      }
+
+      > ${Grid}{
+        transition-delay:200ms; 
+        opacity:1;
+        transform:translateY(0);
+      }
     }
 
-    > ${Grid}{
-      transition-delay:200ms; 
-      opacity:1;
-      transform:translateY(0);
-    }
+    
   }
 
 `
@@ -119,7 +127,7 @@ const Modal = props => {
     wrapper
   } = props; 
 
-  let Wrapper = wrapper||React.Fragment;
+  let Wrapper = wrapper||'div';
 
   const getFlexProps = position => {
     let flexProps = {

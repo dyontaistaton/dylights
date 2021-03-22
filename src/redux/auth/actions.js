@@ -1,15 +1,8 @@
 import types from './types';
 import config from '../../config/site.json';
 import errors from './errors.json'
-
-const formatPhoneNumber = phoneNumberString => {
-  var cleaned = ('' + phoneNumberString).replace(/\D/g, '')
-  var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/)
-  if (match) {
-    return '(' + match[1] + ') ' + match[2] + '-' + match[3]
-  }
-  return null
-}
+import inspector from 'schema-inspector'
+import {user} from '../../config/schemas' 
 
 export const login=({email,password}) => {
   return (dispatch,getState,{getFirebase}) => {
@@ -46,15 +39,20 @@ export const register=({email,password,phone,...info},callbacks) => {
 
       // Create New Firebase Doc, For User Data
       const uid = result.user.uid;
-      firestore.collection('users').doc(uid).set({
+
+      const newUser = {
         email,
         id:uid, 
         ...info,
         createdOn:Date.now(),
         orders:0,
-        phone:formatPhoneNumber(phone),
+        phone,
         type:config.userTypes[0]
-      })
+      }
+
+      const sanitizedUser = inspector.sanitize(user, newUser).data;
+
+      firestore.collection('users').doc(uid).set(sanitizedUser)
     })
     .then(() => {dispatch({type: types.REGISTER_SUCCESS});}) 
     

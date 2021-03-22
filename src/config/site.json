@@ -1,7 +1,7 @@
 { 
   "title":"",
   "description":"",
-  "colors":["#FEC49A","#ffffff","#ff0808","#ffffff","#e5e5e5","#23272a"],
+  "colors":["#FEC49A","#93572c","#ff0808","#ffffff","#e5e5e5","#23272a"],
   "fonts":["Karla","Karla"],
   "sizes":{
     "headers":["67.34px","50.52px","37.90px","28.43px","21.33px"],

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {If} from '../../Logic';
 
 export const Style = styled.div`
-
+  padding-top:13px;
 ` 
 
 const Footer = props => {

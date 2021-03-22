@@ -10,6 +10,7 @@ import {If} from '../Logic';
 import Cookies from '../../assets/cookies.jpg'
 import {Login} from '../Account';
 import AccountModal from '../Account/Forms/Modal';
+import {Badge} from '../General';
 
 
 export const Style = styled.div `
@@ -17,7 +18,6 @@ export const Style = styled.div `
   color:${config.colors[1]};
   background-image:url(${Cookies});
   background-position:center;
-  overflow:hidden;
   position:relative;
 
   // Flex Container
@@ -42,7 +42,9 @@ export const Style = styled.div `
 `
 
 const Header = props => {
-  const {auth} = useSelector(state => state.firebase);
+  const state = useSelector(state => state);
+  const {firebase, cart} = state;
+  const {auth} = firebase;
 
   return (
     <Style>
@@ -56,7 +58,9 @@ const Header = props => {
             <IconButton to={`/u/${auth.uid}/a`}data-title='Account' size='large' icon={FaUser()} fill={config.colors[0]} background={config.colors[3]}/>
           </If>
           <AccountModal/>
-          <IconButton data-title='Cart' size='large' icon={FaShoppingBasket()} fill={config.colors[0]} background={config.colors[3]}/>
+          <Badge background={config.colors[1]} value={cart.totalAmount}>
+            <IconButton data-title='Cart' size='large' icon={FaShoppingBasket()} fill={config.colors[0]} background={config.colors[3]}/>
+          </Badge>
         </Flex>
       </Flex>
     </Style>    

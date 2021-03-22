@@ -1,7 +1,11 @@
 import types from './types';
 import {UploadFile,RemoveFile} from '../../storage/actions'
 
-/* Product Actions */
+/**
+ * Create A New Product 
+ * @param {any} info 
+ * @param  {...Function} callbacks 
+ */
 export const CreateProduct = (info,...callbacks) => {
   return (dispatch,getState,{getFirebase}) => {
 

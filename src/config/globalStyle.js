@@ -39,7 +39,7 @@ const GlobalStyle = createGlobalStyle`
 
   #root {
     // Gives Spacer Margin to Elements That Are After Another Element
-    *{
+    *[data-spaced]{
       &~h1,&~h2,&~h3,&~h3,&~h4,&~h5,&~h6,&~p{
         margin-block-start:0.5em;
       }
