@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {Toggle} from '../../components/Button';
 import {Flex} from '../../components/Layout';
 import config from '../../config/site.json';
-import {PathToggleGroup} from '../../components/Page'
+import {PathToggleGroup} from '../../components/General'
 
 export const Style = styled(Flex)`
   background-color:${config.colors[4]};

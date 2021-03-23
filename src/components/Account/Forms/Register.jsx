@@ -19,19 +19,22 @@ const Register=props => {
     >
       <Modal {...props}>
         <Modal.Header>
-          <h3>Register</h3>
-          <h5>New Account</h5>
-          <Icon
-            size="smaller"
-            data-title='Login'
-            icon={FaSignInAlt()}
-            onClick={props.onSwitch}
-            style={{
-              position: 'absolute',
-              top: '20px',
-              right: '65px'
-            }}
-          />
+          <hgroup>
+            <h3>Register</h3>
+            <h5>New Account</h5>
+            <Icon
+              size="smaller"
+              data-title='Login'
+              icon={FaSignInAlt()}
+              onClick={props.onSwitch}
+              style={{
+                position: 'absolute',
+                top: '20px',
+                right: '65px'
+              }}
+            />
+          </hgroup>
+          
         </Modal.Header>
         <Modal.Body>
           <Input required autoComplete="email" name='email' label='Email' type='email' />

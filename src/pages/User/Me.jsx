@@ -2,7 +2,7 @@ import React from 'react'
 import {useSelector} from 'react-redux';
 import styled from 'styled-components';
 import {Button} from '../../components/Button';
-import {PathToggleGroup} from '../../components/Page'
+import {PathToggleGroup} from '../../components/General'
 import {Flex, Grid} from '../../components/Layout';
 import {Switch} from 'react-router';
 import config from '../../config/site.json'

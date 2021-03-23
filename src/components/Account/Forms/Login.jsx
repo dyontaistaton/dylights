@@ -17,20 +17,23 @@ const Login=props => {
     >
       <Modal {...props}>
         <Modal.Header>
-          <h3>Login</h3>
-          <h5>To Your Account</h5>
-          <Icon
-            size="smaller"
-            data-title='Register'
-            icon={FaPlus()}
-            onClick={props.onSwitch}
-            style={{
-              position: 'absolute',
-              top: '20px',
-              right: '65px'
-            }}
-            type='button'
-          />
+          <hgroup>
+            <h3>Login</h3>
+            <h5>To Your Account</h5>
+            <Icon
+              size="smaller"
+              data-title='Register'
+              icon={FaPlus()}
+              onClick={props.onSwitch}
+              style={{
+                position: 'absolute',
+                top: '20px',
+                right: '65px'
+              }}
+              type='button'
+            />
+          </hgroup>
+          
         </Modal.Header>
         <Modal.Body>
           <Input required autoComplete="email" name='email' label='Email' />

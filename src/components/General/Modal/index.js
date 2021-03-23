@@ -7,8 +7,7 @@ import PropTypes from 'prop-types'
 import Header from './Header';
 import Footer from './Footer'
 import Body from './Body'
-import Splash from './Splash'
-
+import Splash from './Splash' 
 
 export const Style = styled(Flex)`
   visibility:none;
@@ -118,6 +117,22 @@ const POSITIONS = {
   center:'center',
 }
 
+const getFlexProps = position => {
+  let flexProps = {
+    fill:true
+  };
+
+  if(position===POSITIONS.center){return {...flexProps,center:true}}
+  if(position.startsWith('top')) {flexProps.a='flex-start'}
+  if(position.startsWith('bottom')) {flexProps.a='flex-end'}
+  if(position.startsWith('middle')) {flexProps.a='center'}
+  if(position.endsWith('middle')) {flexProps.j='center'}
+  if(position.endsWith('left')) {flexProps.j='flex-start'}
+  if(position.endsWith('right')) {flexProps.j='flex-end'}
+
+  return flexProps;
+}
+
 const Modal = props => {
   let {
     show,
@@ -128,22 +143,6 @@ const Modal = props => {
   } = props; 
 
   let Wrapper = wrapper||'div';
-
-  const getFlexProps = position => {
-    let flexProps = {
-      fill:true
-    };
-
-    if(position===POSITIONS.center){return {...flexProps,center:true}}
-    if(position.startsWith('top')) {flexProps.a='flex-start'}
-    if(position.startsWith('bottom')) {flexProps.a='flex-end'}
-    if(position.startsWith('middle')) {flexProps.a='center'}
-    if(position.endsWith('middle')) {flexProps.j='center'}
-    if(position.endsWith('left')) {flexProps.j='flex-start'}
-    if(position.endsWith('right')) {flexProps.j='flex-end'}
-
-    return flexProps;
-  }
 
   const childrenProps = {
     onHide

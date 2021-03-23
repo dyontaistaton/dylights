@@ -1,13 +1,15 @@
 import React from 'react'
+import styled from 'styled-components';
 import {Helmet,HelmetProvider} from 'react-helmet-async'
 import {ThemeProvider} from 'styled-components'
-import Layout from './Layout'
-  
-export {default as Header} from './Header'
-export {default as Footer} from './Footer'
-export {default as Layout} from './Layout'
-export {default as PathToggleGroup} from './PathToggleGroup'
+import Header from './Header'
+import Footer from './Footer'
+import Body from './Body'
+import {Flex} from '../Layout';
 
+const Style = styled(Flex)`
+  min-height:100vh;
+`
 
 const Page = props => {
   return (
@@ -16,12 +18,16 @@ const Page = props => {
         <Helmet>
           {props.helmet}
         </Helmet>
-        <Layout {...props}>
+        <Style d='column' {...props}>
           {props.children}
-        </Layout>
+        </Style>
       </HelmetProvider>
     </ThemeProvider>
   )
 }
+
+Page.Header = Header;
+Page.Footer = Footer;
+Page.Body = Body;
 
 export default Page;

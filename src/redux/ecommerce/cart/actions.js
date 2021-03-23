@@ -15,7 +15,7 @@ export const AddToCart = (purchase,...callbacks) => {
     const sanitizedPurchase = inspector.sanitize(purchaseSchema,purchase).data
 
     //* Get New Totals
-    const newTotalCost = totalCost + sanitizedPurchase.cost*sanitizedPurchase.amount
+    const newTotalCost = totalCost + sanitizedPurchase.price*sanitizedPurchase.amount
     const newTotalAmount = totalAmount + sanitizedPurchase.amount
 
     //* Get New Purchase List

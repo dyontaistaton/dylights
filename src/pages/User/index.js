@@ -14,19 +14,20 @@ const User = props => {
   const isOnOwn = uid===id; 
 
   return (
-    <Page
-      noHeader
-      noFooter
-    >
-      <If value={uid}>
+    <Page>
+      <Page.Header size='smaller'/>
+      <Page.Body>
+        <If value={uid}>
 
-        {/* When User Is On His Own User Page */}
-        <If value={isOnOwn}><Me id={id}/></If> 
+          {/* When User Is On His Own User Page */}
+          <If value={isOnOwn}><Me id={id}/></If> 
 
-        {/* When User Is On Another User's Page */}
-        <If value={!isOnOwn}><Other id={id}/></If>
-        
-      </If>
+          {/* When User Is On Another User's Page */}
+          <If value={!isOnOwn}><Other id={id}/></If>
+
+        </If>
+      </Page.Body>
+      
     </Page>
   )
 }

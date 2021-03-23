@@ -4,7 +4,6 @@ import config from '../../config/site.json'
 import {Flex} from '../Layout'
 import {Icon as IconButton} from '../Button'
 import {FaFacebookF, FaInstagram} from 'react-icons/fa';
-import Cookies from '../../assets/cookies.jpg'
 
 export const Style = styled(Flex) `
   background-color:${config.colors[0]};
@@ -25,7 +24,7 @@ export const Style = styled(Flex) `
 
 const Footer = props => {
   return (
-    <Style center>
+    <Style center {...props}>
       <h6>2021 © <strong>Dylights</strong> ⦁ Developed By <strong>StatonFoundation™</strong></h6>
       <Flex d='column' g='20px'>
         <IconButton size='large' icon={FaInstagram()} href='https://www.instagram.com/baked.dylights/'/>
@@ -34,5 +33,7 @@ const Footer = props => {
     </Style>
   )
 }
+
+Footer.style = Style;
 
 export default Footer

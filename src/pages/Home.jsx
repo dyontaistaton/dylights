@@ -18,17 +18,16 @@ const Home=props => {
         </Flex>
       )}
     >
-      <FirestoreAdaptor queries={['products']}>
-        <List
-          wrapper={props => (
-            <Flex a='flex-start' j='center' g='55px' wrap='wrap' style={{width: 'fit-content'}}>
-              {props.children}
-            </Flex>
-          )}
-          card={Cookie}
-          products={products&&products}
-        />
-      </FirestoreAdaptor>
+      <Page.Header/>
+      <Page.Body center style={{padding:'55px'}}>
+        <FirestoreAdaptor queries={['products']}>
+          <List
+            card={Cookie}
+            products={products}
+          />
+        </FirestoreAdaptor>
+      </Page.Body>
+      <Page.Footer/>
     </Page>
   );
 };

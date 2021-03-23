@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import {Flex} from '../../../Layout';
 import config from '../../../../config/site.json'
+import HashLoader from 'react-spinners/HashLoader'
 
 export const Style = styled.div` 
   position:relative;
@@ -134,6 +135,15 @@ export const Style = styled.div`
 const Cookie = props => {
   const {product} = props;
   const {name, price, count, type, imageUrl} = product;
+
+  // When There Is No Product
+  if(!product||!product.imageUrl){return(
+    <Style>
+      <Flex center fill>
+        <HashLoader color={config.colors[0]}/>
+      </Flex>
+    </Style>
+  )}
 
   return (
     <Style {...props}> 

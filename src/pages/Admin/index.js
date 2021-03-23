@@ -17,18 +17,20 @@ export const Style = styled.div`
 const Admin = props => {
   const {path} = useRouteMatch()
   return (
-    <Page
-      noHeader
-      footer={props=>(<Footer routes={routes.map(route=>route.name)}/>)}
-      wrapper={props=>(<Style>{props.children}</Style>)}
-    >
-      <Switch>
-        {routes.map(route=>(
-          <Route path={`${path}/${route.name[0].toLowerCase()}`}>
-            {route({})}
-          </Route>
-        ))} 
-      </Switch>
+    <Page>
+      <Page.Header size='smaller'/>
+      <Page.Body>
+        <Switch>
+          <Style>
+            {routes.map(route=>(
+              <Route path={`${path}/${route.name[0].toLowerCase()}`}>
+                {route({})}
+              </Route>
+            ))} 
+          </Style>
+        </Switch>
+      </Page.Body>
+      <Footer routes={routes.map(route=>route.name)}/>
     </Page>
   )
 }

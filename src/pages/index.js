@@ -2,9 +2,12 @@ import React from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import Home from './Home';
 import Admin from './Admin';
-import User from './User'
+import User from './User';
+import Cart from './Cart';
 
-export const Pages = [Admin,User,Home];
+export {Admin,User,Cart,Home}
+
+export const Pages = [Admin,User,Cart,Home];
 
 const App = props => {
   return (

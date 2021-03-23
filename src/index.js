@@ -8,6 +8,8 @@ import {Provider} from 'react-redux';
 import {ReactReduxFirebaseProvider} from 'react-redux-firebase';
 import firebase, {config} from './config/firebase';
 import {createFirestoreInstance} from "redux-firestore";
+import stripePromise from './config/stripe'
+import {Elements} from '@stripe/react-stripe-js' 
 
 const rrfProps={
   firebase,
@@ -28,8 +30,10 @@ ReactDOM.render(
   <React.StrictMode> 
     <Provider store={store}>
       <ReactReduxFirebaseProvider {...rrfProps}>
-        <GlobalStyle/>
-        <App />
+        <Elements stripe={stripePromise}>
+          <GlobalStyle/>
+          <App />
+        </Elements>
       </ReactReduxFirebaseProvider>
     </Provider>
   </React.StrictMode>,

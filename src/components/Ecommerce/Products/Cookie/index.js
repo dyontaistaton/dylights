@@ -1,6 +1,6 @@
 import React from 'react'
 import Card from './Card'
-import {AddToCart} from '../Forms' 
+import {Forms} from '../../Cart' 
 import {AddToCart as addToCart} from '../../../../redux/ecommerce/cart/actions'
 import {useDispatch} from 'react-redux';
 
@@ -34,7 +34,7 @@ const Cookie = props => {
   }
 
   return (
-    <AddToCart
+    <Forms.AddToCart
       loading={loading}
       completed={completed}
       product={product}
