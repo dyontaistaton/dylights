@@ -17,7 +17,7 @@ export const Style = styled(Flex)`
   }
 
   // Close Icon Button
-  ~ ${Button.style}#close-button {
+  ~ ${Button.style}.close-button {
     position:absolute;
     z-index:100;
     top:20px;
@@ -32,7 +32,7 @@ const Header = props => {
         {props.children}
       </Style>
       <If value={props.closeButton}>
-        <Icon id='close-button' icon={FaTimes()} data-title='Close' size='smaller' onClick={props.onHide} type='button'/>
+        <Icon className='close-button' icon={FaTimes()} data-title='Close' size='smaller' onClick={props.onHide} type='button'/>
       </If>
     </>
   )

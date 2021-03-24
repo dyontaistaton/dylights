@@ -6,9 +6,12 @@ const Style = styled.div `
   width:313px;
   max-width:100%;
   ${props=>props.fill&&`width:100%;`} 
+  ${props=>props.width&&`width:${props.width};`}
 
   & ~ & {
     margin-top:10px;
+    ${props=>props.noSpacing==true&&`margin-top:0;`}
+
   }
 
   // Inputs ( Fields )
@@ -17,7 +20,7 @@ const Style = styled.div `
     border:solid 1px ${config.colors[5]}30;
     background-color:${config.colors[4]};
     outline:none;
-    width:313px;
+    width:100%;
     max-width:100%;
     box-sizing:border-box;
     border-radius:10px; 
@@ -91,7 +94,7 @@ const Style = styled.div `
   input, select {
     height:60px;
     & ~ label {
-      top:0px;
+      top:-1px;
       bottom:0;
     }
   }

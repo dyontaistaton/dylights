@@ -11,5 +11,6 @@
   "userTypes":[
     "User",
     "Admin"
-  ]
+  ],
+  "functionsUrl":"https://us-central1-baked-dylights.cloudfunctions.net/app"
 }

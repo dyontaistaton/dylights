@@ -23,6 +23,10 @@ export const Style = styled(Flex) `
   padding:20px;
   box-sizing:border-box; 
 
+  > #logo{
+    cursor:pointer;
+  }
+
   //* Header Sizing Variants 
   &[data-size=small]{
     height:200px;
@@ -39,14 +43,14 @@ export const Style = styled(Flex) `
 
   //* Media Queries
   @media(max-width:700px){
-    #logo{
+    > #logo{
       width:600px;
     }
   }
 
   @media(max-width:500px){
     height:200px;
-    #logo{
+    > #logo{
       width:300px;
     }
   }

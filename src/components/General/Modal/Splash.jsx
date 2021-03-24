@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {Flex} from '../../Layout';
 import config from '../../../config/site.json'
 import PropTypes from 'prop-types'
+import {If} from '../../Logic';
 
 const Style = styled(Flex)`
   border-radius:100%;
@@ -16,6 +17,7 @@ const Style = styled(Flex)`
   transform-origin: top left;
   transition:200ms ease;
   opacity:0;
+  padding:inherit;
 
   > *{
     transform: rotateZ(45deg);
@@ -36,9 +38,17 @@ const Style = styled(Flex)`
 `
 
 const Splash = props => { 
+
+  const childrenProps = {
+    onHide:props.onHide
+  }
+  const clonedChildren = React.Children.toArray(props.children).map(child=>{return React.cloneElement(child,{...child.props,...childrenProps})})
+
   return (
     <Style data-completed={props.completed} {...props}>
-      {props.children}
+      <If value={!props.render} Else={props.render&&props.render(childrenProps)}>
+        {clonedChildren} 
+      </If>
     </Style>
   )
 }

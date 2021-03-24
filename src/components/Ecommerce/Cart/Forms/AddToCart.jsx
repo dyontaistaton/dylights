@@ -7,7 +7,11 @@ import {FaCartPlus} from 'react-icons/fa';
 
 const Style=styled.div`
   ${Modal.Body.style}{
-    
+  
+    * {
+      white-space:nowrap;
+    }
+
     >${Flex} > h3{
       position:relative;
       
@@ -24,7 +28,6 @@ const Style=styled.div`
         > * {
           margin-left:55px;
           margin-top:7px;
-          white-space:nowrap;
         }
       }
     }
@@ -52,11 +55,11 @@ const AddToCart=props => {
         },
         onSubmit:handleSubmit,
       }}
-      onChange={(value)=>setCurAmount(value.target&&value.target.value)}
+      onChange={(value)=>setCurAmount(value.target&&value.target.value<=8&&value.target.value)}
       wrapper={Style}
     > 
       <Modal.Body>
-        <Flex j='space-between' a='center'>
+        <Flex j='space-between' a='center' g='60px'>
           <h3>
             {product.name}
             <Flex center style={{backgroundImage: `url(${product.imageUrl})`}}>
@@ -65,7 +68,7 @@ const AddToCart=props => {
           </h3>
           <h5>${product.price*(curAmount||1)}</h5>
         </Flex>
-        <Input name='amount' type='number' label='Amount' width='100px' min='1' max='8'/>
+        <Input name='amount' type='number' label='Amount' fill min='1' max='8'/>
       </Modal.Body>
       <Modal.Footer
         render={() => (

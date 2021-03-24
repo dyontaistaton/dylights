@@ -1,5 +1,5 @@
 import {loadStripe} from '@stripe/stripe-js'
 
-const publicKey = 'pk_live_51HcHMtKnUTYIhGZpGd5z3kkTNhikvq9G416JooPAKbEkRI8uHZiTKevDF2TjEzLB42iYJ9HWYIydeuPWZK4lk0T200yiVeeDK7'
+const publicKey = 'pk_test_51HcHMtKnUTYIhGZpaLRWOR1dDVUX25hO4b9BBtCrUlv62Wqtnr1ADLwzR1RRj43hySYlyXC6ChuMP5gRdwnmrGw900AwSMRuyQ'
 
 export default loadStripe(publicKey)

@@ -87,6 +87,14 @@ Select.propTypes = {
   /** Field Name */
   name: PropTypes.string.isRequired,
 
+  /** Does Input Width Fill Parent Element? */
+  fill: PropTypes.bool, 
+
+  /** The Width Of The Input Element */
+  width: PropTypes.string,
+  
+  /** Disables Field Spacing */
+  noSpacing: PropTypes.bool
 }
 
 Select.style = Style;

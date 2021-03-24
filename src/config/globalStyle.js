@@ -39,10 +39,13 @@ const GlobalStyle = createGlobalStyle`
 
   #root {
     // Gives Spacer Margin to Elements That Are After Another Element
-    *[data-spaced]{
-      &~h1,&~h2,&~h3,&~h3,&~h4,&~h5,&~h6,&~p{
-        margin-block-start:0.5em;
+    *[data-spaced=true]{
+      >hgroup,>h1,>h2,>h3,>h4,>h5,>h6,>p{
+        &~h1,&~h2,&~h3,&~h3,&~h4,&~h5,&~h6,&~p{
+          margin-block-start:0.5em;
+        }
       }
+      
     }
 
     // Clamps Page Content To Fit Within Page Wrappers
@@ -101,6 +104,11 @@ const GlobalStyle = createGlobalStyle`
   ${config.sizes.headers.reduce((prev,cur,i)=>{return prev+`h${i+1}{font-size:${cur};}\n`},'')}
   small, h6, sup{font-size:${config.sizes.small};}
   p{font-size:${config.sizes.p};} 
+
+  // Line Breaks
+  hr{
+    margin:10px 0;
+  }
 `
 
 export default GlobalStyle;
