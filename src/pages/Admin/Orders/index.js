@@ -5,8 +5,7 @@ import {FirestoreAdaptor} from '../../../components/General';
 import {default as OrderCard} from './Card'
 
 const Orders = props => {
-  const orders = useSelector(state => state.firestore.data.orders) 
-  const products = useSelector(state => state.firestore.data.products)
+  const {orders,products} = useSelector(state => state.firestore.data) 
 
   return (
     <FirestoreAdaptor queries={[
@@ -27,5 +26,7 @@ const Orders = props => {
     </FirestoreAdaptor>
   )
 }
+
+Orders.name = 'Orders'
 
 export default Orders

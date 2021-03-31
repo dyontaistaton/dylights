@@ -2,7 +2,7 @@ const Stripe = require('stripe');
 
 const ErrorLogger = require('../ErrorLogger')
 
-const privateKey = 'sk_test_51IYwqKHDzbecu5pZP5pm1AgNaeUoZES4ANvCeBqD1vhs9xyoxriVjDZGJCGIp2StlgEEqY4Pjj1y9y7PjG8ehpKm00keKTRkhm'
+const privateKey = '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'
 
 const stripe = new Stripe(privateKey);
 

@@ -6,4 +6,7 @@ const Users = props => {
   )
 }
 
+Users.name = 'Users'
+
+
 export default Users;
