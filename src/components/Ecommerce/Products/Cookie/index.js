@@ -5,7 +5,7 @@ import {AddToCart as addToCart} from '../../../../redux/ecommerce/cart/actions'
 import {useDispatch} from 'react-redux';
 
 const Cookie = props => {
-  const {product,key} = props;
+  const {price,key} = props;
   const dispatch = useDispatch()
 
   const [loading, setLoading] = React.useState(false);
@@ -19,7 +19,7 @@ const Cookie = props => {
     dispatch(addToCart({
       product:key,
       amount,
-      price:product.price
+      price:price
     },()=>{
       setLoading(false)
       setCompleted(true) 
@@ -37,13 +37,13 @@ const Cookie = props => {
     <Forms.AddToCart
       loading={loading}
       completed={completed}
-      product={product}
+      product={props}
       onSubmit={handleSubmit}
       render={({
         handleToggle
       })=>(
         <Card
-          product={product}
+          product={props}
           onClick={handleToggle}
         />
       )}

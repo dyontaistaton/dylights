@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components';
 import {CardElement} from '@stripe/react-stripe-js';
 import options from './options'
-import {Field} from 'formik'
 import PaymentStyle from './Style'
 
 const Style = styled(PaymentStyle)`

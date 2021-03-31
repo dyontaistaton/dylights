@@ -22,6 +22,7 @@ const Login=props => {
             <h5>To Your Account</h5>
             <Icon
               size="smaller"
+              data-visible
               data-title='Register'
               icon={FaPlus()}
               onClick={props.onSwitch}

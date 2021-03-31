@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {FaPlus} from 'react-icons/fa';
 import {Icon} from '../../../components/Button';
 import {Flex} from '../../../components/Layout';
-import {Forms, Cards} from '../../../components/Ecommerce/Products'
+import {Forms} from '../../../components/Ecommerce/Products'
 import {CreateProduct} from '../../../redux/ecommerce/products/actions'
 import {UploadFile} from '../../../redux/storage/actions' 
 import List from './List'
@@ -58,8 +58,8 @@ const Products = props => {
   
   return (
     <Style>
-      <Flex>
-        <h1>Products</h1>
+      <Flex g='10px'>
+        <h3>All Products</h3>
         <Forms.Create 
           onSubmit={handleCreateSubmit} 
           loading={loading}

@@ -1,6 +1,6 @@
 import React from 'react' 
 import styled from 'styled-components'; 
-import {Button,Group,Icon} from '../../../Button';
+import {Button,Icon} from '../../../Button';
 import {Flex} from '../../../Layout';
 import config from '../../../../config/site.json'
 import {FaEnvelope, FaEnvelopeOpen} from 'react-icons/fa';

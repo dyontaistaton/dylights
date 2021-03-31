@@ -1,9 +1,8 @@
 import React from 'react' 
 import styled from 'styled-components';
-import {Toggle} from '../../components/Button';
-import {Flex} from '../../components/Layout';
+import {Flex} from '../Layout';
 import config from '../../config/site.json';
-import {PathToggleGroup} from '../../components/General'
+import {PathToggleGroup} from '.'
 
 export const Style = styled(Flex)`
   background-color:${config.colors[4]};
@@ -12,12 +11,10 @@ export const Style = styled(Flex)`
 `
 
 const Footer = props => { 
-  const path = window.location.pathname
-  const {routes} = props
+  const {routes,start} = props
   return (
     <Style g='15px'> 
-      <PathToggleGroup start='/a' routes={routes} shortened/>
-      <Toggle toggled={false} to='/' label='Home'/>
+      <PathToggleGroup start={start} routes={routes} shortened/>
     </Style>
   )
 }

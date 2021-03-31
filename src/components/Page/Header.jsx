@@ -12,6 +12,7 @@ import AccountModal from '../Account/Forms/Modal';
 import {Badge} from '../General';
 import {Cart,Admin,User} from '../../pages' 
 import {useHistory} from 'react-router-dom';
+import StatonIcon from '../Svg/StatonIcon'
 
 export const Style = styled(Flex) `
   height:300px;
@@ -22,6 +23,17 @@ export const Style = styled(Flex) `
   position:relative;
   padding:20px;
   box-sizing:border-box; 
+
+  //* Staton Icon SVG
+  > #staton-icon{
+    fill:white;
+    opacity:0.36;
+    width:15%;
+    height:250px;
+    position:absolute;
+    bottom:-20%;
+    right:-30px;
+  }
 
   > #logo{
     cursor:pointer;
@@ -53,6 +65,11 @@ export const Style = styled(Flex) `
     > #logo{
       width:300px;
     }
+
+    > #staton-icon{
+      width:27%;
+      bottom:-40%;
+    }
   }
 `
 
@@ -70,13 +87,14 @@ const Header = props => {
           <IconButton data-title='Admin' size='large' icon={FaWrench()} to={`${Admin.path}/o`} fill={config.colors[0]} background={config.colors[3]}/> 
         </If>
         <If value={auth.uid}>
-          <IconButton to={`${User.path}/${auth.uid}/a`}data-title='Account' size='large' icon={FaUser()} fill={config.colors[0]} background={config.colors[3]}/>
+          <IconButton to={`${User.path}/a`}data-title='Account' size='large' icon={FaUser()} fill={config.colors[0]} background={config.colors[3]}/>
         </If>
         <AccountModal/>
         <Badge background={config.colors[1]} value={cart.totalAmount}>
           <IconButton to={Cart.path} data-title='Cart' size='large' icon={FaShoppingBasket()} fill={config.colors[0]} background={config.colors[3]}/>
         </Badge>
       </Flex>
+      <StatonIcon id='staton-icon'/>
     </Style>    
   )
 } 

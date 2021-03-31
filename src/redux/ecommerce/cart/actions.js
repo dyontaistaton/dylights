@@ -18,8 +18,22 @@ export const AddToCart = (purchase,...callbacks) => {
     const newTotalCost = totalCost + sanitizedPurchase.price*sanitizedPurchase.amount
     const newTotalAmount = totalAmount + sanitizedPurchase.amount
 
-    //* Get New Purchase List
-    const newPurchaseList = [...purchases, sanitizedPurchase] 
+    //* Check If Product With Same Price Is Already In Purchases
+    const matchedPurchase = purchases.find(purchase=>Boolean(
+      purchase.price === sanitizedPurchase.price
+      && purchase.product === sanitizedPurchase.product
+    )) 
+
+    if(matchedPurchase){
+      const matchedPurchaseIndex = purchases.indexOf(matchedPurchase);
+
+      //* Add Amount Of Matched Products To Original Purchase
+      purchases[matchedPurchaseIndex] = {...matchedPurchase, amount:matchedPurchase.amount+sanitizedPurchase.amount} 
+    }
+
+
+    //* Create New Purchase List
+    const newPurchaseList = matchedPurchase?purchases:[...purchases, sanitizedPurchase]
 
     //* Sanitize New Cart
     const sanitizedCart = inspector.sanitize(cartSchema, {

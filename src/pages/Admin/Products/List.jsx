@@ -17,8 +17,6 @@ const Style = styled.ul`
 `
 
 const List = props => {
-  const {card} = props;
-
   const products = useSelector(state => state.firestore.data.products) 
 
   return ( 

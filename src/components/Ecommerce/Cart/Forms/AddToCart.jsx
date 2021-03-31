@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Modal,Input,File} from '../../../Form';
+import {Modal,Input} from '../../../Form';
 import {Dynamic} from '../../../Button';
 import {Flex} from '../../../Layout';
 import {FaCartPlus} from 'react-icons/fa';
@@ -55,7 +55,7 @@ const AddToCart=props => {
         },
         onSubmit:handleSubmit,
       }}
-      onChange={(value)=>setCurAmount(value.target&&value.target.value<=8&&value.target.value)}
+      onChange={(value)=>setCurAmount(value.target&&value.target.value<=10&&value.target.value)}
       wrapper={Style}
     > 
       <Modal.Body>
@@ -68,7 +68,7 @@ const AddToCart=props => {
           </h3>
           <h5>${product.price*(curAmount||1)}</h5>
         </Flex>
-        <Input name='amount' type='number' label='Amount' fill min='1' max='8'/>
+        <Input name='amount' type='number' label='Amount' fill min='1' max='10'/>
       </Modal.Body>
       <Modal.Footer
         render={() => (

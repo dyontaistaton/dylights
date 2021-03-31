@@ -10,7 +10,7 @@ const Style = styled.div `
 
   & ~ & {
     margin-top:10px;
-    ${props=>props.noSpacing==true&&`margin-top:0;`}
+    ${props=>props.noSpacing===true&&`margin-top:0;`}
 
   }
 

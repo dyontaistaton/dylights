@@ -1,14 +1,14 @@
-import {useElements, useStripe} from '@stripe/react-stripe-js';
 import React from 'react';
 import {FaStripe} from 'react-icons/fa';
 import styled from 'styled-components';
-import {Button, Dynamic} from '../../../Button';
-import {Input, Modal} from '../../../Form';
-import {Full} from '../../../Form/Fields/Payments';
-import Divider from '../../../General/Divider';
-import {Flex} from '../../../Layout';
-import config from '../../../../config/site.json'
-import BadgeCheckOutlineSvg from '../../../Svg/BadgeCheckOutline'
+import {Dynamic} from '../../../../Button';
+import {Input, Modal} from '../../../../Form';
+import {Full} from '../../../../Form/Fields/Payments';
+import Divider from '../../../../General/Divider';
+import {Flex} from '../../../../Layout';
+import config from '../../../../../config/site.json'
+import Errors from './Errors'
+import {useSelector} from 'react-redux';
 
 const Style=styled.div`
    ${Modal.Body.style}{
@@ -51,19 +51,22 @@ const Style=styled.div`
 `;
 
 const Checkout = props => {
-  const {render,onSubmit,loading,completed,price,handleClose}=props; 
-  const [cardValue, setCardValue] =React.useState(null)
+  const {render,onSubmit,loading,price,error} = props; 
+  const [cardValue, setCardValue] =React.useState(null) 
+  const {profile} = useSelector(state => state.firebase)||{}
+
+  const ErrorSplash = Errors[error]||Errors.generic_decline;
 
   return (
     <Modal
       render={render}
       form={{
         initialValues:{
-          address:'',
-          name:'',
-          email:'',
-          city:'',
-          state:'',
+          address:profile.lastStreet||'',
+          name:profile.name||'',
+          email:profile.email||'',
+          city:profile.lastCity||'',
+          state:profile.lastState||'',
         },
         onSubmit:(values,actions)=>{
           onSubmit({...values,card:cardValue},actions)
@@ -96,26 +99,10 @@ const Checkout = props => {
       </Modal.Body>
       <Modal.Footer>
         <Dynamic loading={loading} label='Purchase' width='100%' size='large' type='submit'/>
-      </Modal.Footer>
-      <Modal.Splash 
-        completed={completed}
-        render={({onHide})=>(
-          <Flex fill style={{height:'100%'}} a='center' j='space-between' d='column'>
-            <Flex fill center d='column' data-spaced>
-              <BadgeCheckOutlineSvg fill='white'/>
-              <hgroup>
-                <h2>Purchase</h2>
-                <h4>Successful</h4>
-              </hgroup>
-              <p>
-                We are now processing your order. An <strong>Order Confirmation </strong> 
-                has been sent to your email. Your order will be <strong>Baked Fresh</strong> upon delivery
-              </p>
-            </Flex>
-            <Button width='100%' label='Complete' onClick={()=>{handleClose(onHide)}} type='button'/>
-          </Flex>
-        )}
-      /> 
+      </Modal.Footer> 
+      <Modal.Splash completed={Boolean(error)}>
+        <ErrorSplash/>
+      </Modal.Splash>
     </Modal>
   );
 };

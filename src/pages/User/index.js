@@ -1,37 +1,42 @@
 import React from 'react'
-import {useSelector} from 'react-redux';
-import {useParams} from 'react-router';
-import {If} from '../../components/Logic';
-import Page from '../../components/Page'
-import Me from './Me'
-import Other from './Other'
+import styled from 'styled-components';
+import {Route, Switch, useRouteMatch} from 'react-router-dom';
+import Page from '../../components/Page';
+import Footer from '../../components/General/RouteFooter'
+
+import Account from './Account'
+import Orders from './Orders'
+import HomeButton from '../../components/General/HomeButton';
+
+const routes = [Account,Orders];
+
+export const Style = styled.div`
+  position:relative;
+  padding:20px;
+`
 
 const User = props => {
-  const {uid} = useSelector(state => state.firebase.auth)
-  const {id} = useParams()
-
-  //* When User Is On His Own Page
-  const isOnOwn = uid===id; 
-
+  const {path} = useRouteMatch()
   return (
     <Page>
       <Page.Header size='smaller'/>
       <Page.Body>
-        <If value={uid}>
-
-          {/* When User Is On His Own User Page */}
-          <If value={isOnOwn}><Me id={id}/></If> 
-
-          {/* When User Is On Another User's Page */}
-          <If value={!isOnOwn}><Other id={id}/></If>
-
-        </If>
+        <Switch>
+          <Style>
+            {routes.map(route=>(
+              <Route path={`${path}/${route.name[0].toLowerCase()}`}>
+                {route({})}
+              </Route>
+            ))} 
+          </Style>
+        </Switch>
+        <HomeButton/>
       </Page.Body>
-      
+      <Footer routes={routes.map(route=>route.name)} start='/u'/>
     </Page>
   )
 }
 
-User.path = '/u/:id'
+User.path='/u'
 
-export default User;
+export default User

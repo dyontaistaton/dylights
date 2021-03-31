@@ -33,6 +33,7 @@ const File = props => {
           <>
             <input 
               {...props} 
+              noSpacing={null}
               onChange={e=>setFieldValue(props.name,e.target.files[0])}
               type='file'
             />

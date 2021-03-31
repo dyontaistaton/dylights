@@ -62,7 +62,7 @@ const Select = props => {
   const {options,caseSensitive,label,placeholder} = props
   return (
     <Style {...props}>
-      <Field {...props} as='select' placeholder='...' required>
+      <Field {...props} noSpacing={null} as='select' placeholder='...' required>
         <option disabled selected hidden value=''/>
         {options&&options.map(option=>(<option value={caseSensitive?option:option.toLowerCase()}>{option}</option>))}
       </Field>

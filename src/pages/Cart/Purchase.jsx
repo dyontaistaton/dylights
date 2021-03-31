@@ -70,7 +70,7 @@ const Purchase = props => {
       <figure style={{backgroundImage:`url(${product.imageUrl})`}}/>
       <article>
         <h3>{product.name}</h3>
-        <h5>x {amount} Orders</h5>
+        <h5>x {amount} Order{amount>1?'s':''}</h5>
       </article>
       <h1>{price*amount}<sup>$</sup></h1>
     </Style>

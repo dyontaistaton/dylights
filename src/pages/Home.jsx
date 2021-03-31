@@ -23,7 +23,7 @@ const Home=props => {
         <FirestoreAdaptor queries={['products']}>
           <List
             card={Cookie}
-            products={products}
+            items={products}
           />
         </FirestoreAdaptor>
       </Page.Body>

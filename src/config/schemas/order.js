@@ -6,7 +6,24 @@ export default Object.freeze({
   properties:{
     cart,
     onCreated:{type:'number'},
-    user:{type:'string'},
-    address:{type:'string'}
+    onDelivered:{type:'number',optional:true},
+    user:{type:'string', optional:'true'},
+    email:{type:'string'},
+    address:{
+      type:'object',
+      properties:{
+        city:{type:'string'},
+        state:{type:'string'},
+        street:{type:'string'},
+        zip:{type:'string'}
+      }
+    },
+    payment:{
+      type:'object',
+      properties:{
+        client_secret:{type:'string', alias:'clientSecret'},
+        status:{type:'string'}
+      }
+    }
   }
 })

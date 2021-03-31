@@ -9,8 +9,7 @@ const Style = styled.ul`
   padding:0;
   width:100%;
   overflow-y:scroll;
-  max-height:325px;
-  border-radius:15px; 
+  border-radius:15px;
 
   > *:not(last-child){
     margin-bottom:15px;

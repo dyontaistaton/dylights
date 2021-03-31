@@ -28,11 +28,13 @@ const GlobalStyle = createGlobalStyle`
       display:none;
     }
 
-    //* Removes Selection 
-    user-select: none; 
+    //* Smooth Scrolling
+    scroll-behavior:smooth;
+
+    //* Removes Blue Selection 
     outline:none; 
     &::selection{
-      display:none;
+      background-color:${config.colors[0]}ad;
     }
     -webkit-tap-highlight-color: rgba(0,0,0,0);
   }
@@ -55,6 +57,12 @@ const GlobalStyle = createGlobalStyle`
   //Element Tool Tip
   [data-title]{
     position: relative;
+
+    // Static Visibility 
+    &[data-visible]:after{
+      opacity: 1;
+      visibility: visible; 
+    }
     
     // Make The Tooltip Visible
     &:hover:after{

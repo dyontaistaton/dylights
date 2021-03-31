@@ -6,7 +6,6 @@ import {FaSignInAlt} from 'react-icons/fa';
 import LoggedSplash from './LoggedSplash';
 
 const Register=props => {
-  console.log(props.loading);
   return (
     <Form
       initialValues={{
@@ -25,6 +24,7 @@ const Register=props => {
             <Icon
               size="smaller"
               data-title='Login'
+              data-visible
               icon={FaSignInAlt()}
               onClick={props.onSwitch}
               style={{
@@ -32,6 +32,7 @@ const Register=props => {
                 top: '20px',
                 right: '65px'
               }}
+              type='button'
             />
           </hgroup>
           
@@ -42,7 +43,7 @@ const Register=props => {
           <Input required autoComplete='new-password' name='password' label='Password' type='password' />
         </Modal.Body>
         <Modal.Footer>
-          <Dynamic size="large" label='Register' width='100%' loading={props.loading} />
+          <Dynamic size="large" label='Register' width='100%' loading={props.loading} type='submit'/>
         </Modal.Footer>
         <LoggedSplash authorized={Boolean(props.uid)} />
       </Modal>

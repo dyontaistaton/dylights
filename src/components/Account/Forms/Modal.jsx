@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components';
 import {useDispatch, useSelector} from 'react-redux';
 import {login, register} from '../../../redux/auth/actions';
 import {Icon} from '../../Button';

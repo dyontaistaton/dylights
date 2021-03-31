@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import {default as FieldStyle} from './Style'
 import { Field } from 'formik'
 import { If } from '../../Logic';
-import config from '../../../config/site.json'
 import PropTypes from 'prop-types'
 
 export const types = {
@@ -26,7 +25,7 @@ const Input = props => {
   const {placeholder, label} = props;
   return ( 
     <Style {...props}>
-      <Field {...props} as='input' placeholder='...'/>
+      <Field {...props} noSpacing={null} as='input' placeholder='...'/>
       <If value={placeholder||label}>
         <label><h4>{placeholder||label}</h4></label>
       </If>

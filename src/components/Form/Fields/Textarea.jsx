@@ -33,7 +33,7 @@ const Textarea = props => {
   const {placeholder, label} = props;
   return ( 
     <Style {...props}>
-      <Field {...props} as='textarea' placeholder='...'/>
+      <Field {...props} noSpacing={null} as='textarea' placeholder='...'/>
       <If value={placeholder||label}>
         <label><h4>{placeholder||label}</h4></label>
       </If>

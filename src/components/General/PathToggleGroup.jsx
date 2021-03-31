@@ -15,7 +15,7 @@ const PathToggleGroup = props => {
   const parsedToggles = routes.map((route,i)=>{ 
 
     //* Cut "fullPath" Into Smaller Pieces By Routes
-    const fullPathRoutes = fullPath.match(/(\/)\w+/g); 
+    const fullPathRoutes = fullPath.match(/(\/)\w+/g);
     const lastFPR = fullPathRoutes[fullPathRoutes.length-1]
 
     //* Check If Current FullPath Includes Any Parsed Routes

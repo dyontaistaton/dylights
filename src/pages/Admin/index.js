@@ -2,7 +2,8 @@ import React from 'react'
 import styled from 'styled-components';
 import {Route, Switch, useRouteMatch} from 'react-router-dom';
 import Page from '../../components/Page';
-import Footer from './Footer'
+import Footer from '../../components/General/RouteFooter'
+import HomeButton from '../../components/General/HomeButton';
 
 import Orders from './Orders'
 import Users from './Users'
@@ -29,8 +30,9 @@ const Admin = props => {
             ))} 
           </Style>
         </Switch>
+        <HomeButton/>
       </Page.Body>
-      <Footer routes={routes.map(route=>route.name)}/>
+      <Footer routes={routes.map(route=>route.name)} start='/a'/>
     </Page>
   )
 }
