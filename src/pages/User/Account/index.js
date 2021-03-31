@@ -13,7 +13,4 @@ const Account = props => {
   )
 }
 
-Account.name = 'Account'
-
-
 export default Account

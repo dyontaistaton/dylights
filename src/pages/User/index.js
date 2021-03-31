@@ -9,6 +9,7 @@ import Orders from './Orders'
 import HomeButton from '../../components/General/HomeButton';
 
 const routes = [Account,Orders];
+const routeNames = ['Account','Orders']
 
 export const Style = styled.div`
   position:relative;
@@ -22,9 +23,9 @@ const User = props => {
       <Page.Header size='smaller'/>
       <Page.Body>
         <Switch>
-          <Style>
-            {routes.map(route=>(
-              <Route path={`${path}/${route.name[0].toLowerCase()}`}>
+          <Style> 
+            {routes.map((route,i)=>(
+              <Route path={`${path}/${routeNames[i][0].toLowerCase()}`}>
                 {route({})}
               </Route>
             ))} 
@@ -32,7 +33,7 @@ const User = props => {
         </Switch>
         <HomeButton/>
       </Page.Body>
-      <Footer routes={routes.map(route=>route.name)} start='/u'/>
+      <Footer routes={routeNames} start='/u'/>
     </Page>
   )
 }

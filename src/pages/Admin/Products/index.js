@@ -74,7 +74,4 @@ const Products = props => {
   )
 }
 
-Products.name = 'Products'
-
-
 export default Products;

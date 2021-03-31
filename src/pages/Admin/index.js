@@ -10,6 +10,8 @@ import Users from './Users'
 import Products from './Products' 
 
 const routes = [Orders,Users,Products];
+const routeNames = ['Orders','Users','Products'];
+
 
 export const Style = styled.div`
   padding:20px;
@@ -23,8 +25,8 @@ const Admin = props => {
       <Page.Body>
         <Switch>
           <Style>
-            {routes.map(route=>(
-              <Route path={`${path}/${route.name[0].toLowerCase()}`}>
+            {routes.map((route,i)=>(
+              <Route path={`${path}/${routeNames[i][0].toLowerCase()}`}>
                 {route({})}
               </Route>
             ))} 
@@ -32,7 +34,7 @@ const Admin = props => {
         </Switch>
         <HomeButton/>
       </Page.Body>
-      <Footer routes={routes.map(route=>route.name)} start='/a'/>
+      <Footer routes={routeNames} start='/a'/>
     </Page>
   )
 }

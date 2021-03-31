@@ -34,7 +34,4 @@ const Orders = props => {
   )
 }
 
-Orders.name = 'Orders'
-
-
 export default Orders;
