@@ -15,7 +15,7 @@ const Modal = props => {
   const {auth} = useSelector(state => state.firebase);
 
   //* Determines Which Form Is Rendered
-  const [isRegistering, setIsRegistering] = React.useState(false)
+  const [isRegistering, setIsRegistering] = React.useState(true)
   
   //* Determines If Modal Is Shown
   const [shown, setShown] = React.useState(false)
@@ -59,6 +59,7 @@ const Modal = props => {
         onClick={()=>setShown(!shown)}
         style={{display:auth.uid?'none':undefined}}
         type='button'
+        {...props}
       />
       <If value={isRegistering} Else={(
         <Login uid={auth.uid} show={shown} onSwitch={handleFormSwitch} onHide={handleClose} loading={isLoading} onSubmit={handleLoginSubmit}/>

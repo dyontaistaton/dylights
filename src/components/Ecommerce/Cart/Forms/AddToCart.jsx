@@ -4,11 +4,20 @@ import {Modal,Input} from '../../../Form';
 import {Dynamic} from '../../../Button';
 import {Flex} from '../../../Layout';
 import {FaCartPlus} from 'react-icons/fa';
+import Markdown from 'markdown-to-jsx';
 
 const Style=styled.div`
   ${Modal.Body.style}{
+
+    > figure{
+      border-radius:10px;
+      width:100%;
+      height:70px;
+      background-position:center;
+      margin-bottom:5px;
+    }
   
-    * {
+    *:not(span) {
       white-space:nowrap;
     }
 
@@ -68,7 +77,9 @@ const AddToCart=props => {
           </h3>
           <h5>${product.price*(curAmount||1)}</h5>
         </Flex>
-        <Input name='amount' type='number' label='Amount' fill min='1' max='10'/>
+        <figure style={{backgroundImage:`url(${product.imageUrl})`}}/>
+        <Markdown>{product.description||''}</Markdown>
+        <Input name='amount' type='number' label='Amount' fill min='1' max='10'/> 
       </Modal.Body>
       <Modal.Footer
         render={() => (

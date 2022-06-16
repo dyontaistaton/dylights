@@ -1,5 +1,5 @@
 import React from 'react';
-import {Modal,Input,File} from '../../../Form';
+import {Modal,Input,File, Textarea} from '../../../Form';
 import {Dynamic} from '../../../Button';
 import {Flex} from '../../../Layout';
 import {FaStroopwafel} from 'react-icons/fa';
@@ -15,7 +15,8 @@ const Create=props => {
           name: '',
           price: '',
           count: '',
-          imageFile: '',
+          imageFile: '', 
+          description:''
         },
         onSubmit,
         resetForm
@@ -29,10 +30,11 @@ const Create=props => {
         
       </Modal.Header>
       <Modal.Body>
-        <File autoComplete='off' name='image' label='Image' accepts='image/*' />
-        <Input autoComplete='off' name='name' label='Name' type='text' />
-        <Input autoComplete='off' name='price' label='Price' type="number" />
-        <Input autoComplete='off' name='count' label='Count' type="number" />
+        <File autocomplete='off' name='image' label='Image' accepts='image/*' />
+        <Input autocomplete='off' name='name' label='Name' type='text' />
+        <Input autocomplete='off' name='price' label='Price' type="number" />
+        <Input autocomplete='off' name='count' label='Count' type="number" />
+        <Textarea autocomplete='off' name='description' label='description'/>
       </Modal.Body>
       <Modal.Footer
         render={({onHide}) => (

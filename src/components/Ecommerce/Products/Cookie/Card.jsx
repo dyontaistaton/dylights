@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {Flex} from '../../../Layout';
 import config from '../../../../config/site.json'
 import HashLoader from 'react-spinners/HashLoader'
+import gsap from 'gsap'
 
 export const Style = styled.div` 
   position:relative;
@@ -25,7 +26,7 @@ export const Style = styled.div`
     background-image:url("https://images.squarespace-cdn.com/content/v1/5e7cadfe1e5cbd08267c630d/1587414678149-7BLWIPRP8ACLJYKFOH8H/ke17ZwdGBToddI8pDm48kGS78un_bcNZLY1QrfTmegV7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QHyNOqBUUEtDDsRWrJLTm-jXTMTrB0PefGktXgwZ9-ke3MC6jkwzRBcsdm5TVy4ARQWVfRtMAsNtzm-EqKefv/THE+PLEASE+%26+THANK+YOU+COOKIE");
     background-size:cover;
     background-position:center;
-    transition:ease 300ms; 
+    transition:width ease 300ms, height ease 300ms; 
     height:90%;
     width:90%;
     top:0;
@@ -116,15 +117,45 @@ export const Style = styled.div`
       transform:scale(1);
       opacity:1;
     }
-  }
-
-  &:active{
-
-  }
+  } 
    
   @media (max-width:630px){
     width:300px;
-    height:300px;
+    height:300px; 
+    transition:ease 300ms;
+
+    // Cookie Image 
+    > figure{
+      width:55%;
+      height:55%;
+    }
+
+    // Cookie Name Ring 
+    > div > svg{
+      top:0;
+      right:0;
+      left:0;
+      bottom:0;
+      opacity:1;
+      transform:rotateZ(120deg);
+
+      text{
+        opacity:1;
+        transition:ease 300ms;
+      }
+    }
+
+    // #price-tag Of Cookie
+    > div > ${Flex}{
+      bottom:-10px;
+      right:-10px;
+      transform:scale(1);
+      opacity:1;
+    }
+    
+    &:hover{
+      transform:scale(1.07);
+    }
   }
   @media (max-width:500px){
     width:280px;
@@ -135,6 +166,11 @@ export const Style = styled.div`
 const Cookie = props => {
   const {product} = props;
   const {name, price, count, type, imageUrl} = product;
+
+  React.useEffect(() => {
+    const tl = gsap.timeline({repeat:-1});
+    tl.add(gsap.to(`${Style} > figure`,{rotateZ:360, duration:20, ease:'none'}))
+  })
 
   // When There Is No Product
   if(!product||!product.imageUrl){return(

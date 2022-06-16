@@ -89,7 +89,7 @@ const Header = props => {
         <If value={auth.uid}>
           <IconButton to={`${User.path}/a`}data-title='Account' size='large' icon={FaUser()} fill={config.colors[0]} background={config.colors[3]}/>
         </If>
-        <AccountModal/>
+        <AccountModal data-title='Become A Member Now' data-visible/>
         <Badge background={config.colors[1]} value={cart.totalAmount}>
           <IconButton to={Cart.path} data-title='Cart' size='large' icon={FaShoppingBasket()} fill={config.colors[0]} background={config.colors[3]}/>
         </Badge>
